@@ -1,15 +1,20 @@
 import express from 'express';
-const app = express();
+import { connectDB, getDatabaseName } from './models/db.js';
 
+const app = express();
 const PORT = process.env.PORT || 3001;
 
-import connectDB from './models/db.js';
-connectDB();
+const startServer = async () => {
+    await connectDB();
 
-app.get('/', (req, res) => {
-    res.send('helo 2 expressers!');
-});
+    app.get('/', (req, res) => {
+        const dbName = getDatabaseName();
+        res.send(`helo: ${dbName}`);
+    });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+};
+
+startServer();
