@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "yy.js",
   "scripts": {
-    "start": "node yy.js",
-    "dev": "nodemon yy.js"
+    "start": "node yy.js"
   },
   "author": "",
   "license": "ISC",
