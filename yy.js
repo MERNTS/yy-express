@@ -1,20 +1,16 @@
 import express from 'express';
-import { connectDB, getDatabaseName } from './models/db.js';
+import mongoose from "mongoose";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const startServer = async () => {
-    await connectDB();
+app.use(cors())
 
-    app.get('/', (req, res) => {
-        const dbName = getDatabaseName();
-        res.send(`helo: ${dbName}`);
-    });
+app.get('/', (req, res) => {
+    res.send('Hello its a good World!');
+});
 
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-    });
-};
-
-startServer();
+mongoose.connect(process.env.MONGO_YY)
+    .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
+    .catch((error) => console.log(error.message));
