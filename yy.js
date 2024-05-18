@@ -3,11 +3,11 @@ const app = express();
 
 const PORT = process.env.PORT || 3001;
 
-// import connectDB from './models/db.js';
-// connectDB();
+import connectDB from './models/db.js';
+connectDB();
 
 app.get('/', (req, res) => {
-    res.send('helo expressers!');
+    res.send('helo 2 expressers!');
 });
 
 app.listen(PORT, () => {
