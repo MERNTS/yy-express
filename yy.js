@@ -1,11 +1,12 @@
 // https://segmentfault.com/a/1190000022039572
-import express from 'express';
-import mongoose from "mongoose";
-import cors from "cors";
-import path from 'path';
 
-import indexRouter from './routes/index.js';
-import apiRouter from './routes/api.js';
+const express = require('express');
+const cors = require('cors');
+const mongoose = require("mongoose");
+const path = require('path');
+
+const indexRouter = require('./routes/index');
+const apiRouter = require('./routes/api');
 
 const app = express();
 

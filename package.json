@@ -1,7 +1,6 @@
 {
   "name": "express",
   "version": "1.0.0",
-  "type": "module",
   "main": "yy.js",
   "scripts": {
     "start": "node yy.js",
